@@ -1,5 +1,5 @@
-import { getProviders, signIn } from 'next-auth/react'
-import Header from '../../components/Header'
+import { getProviders, signIn } from "next-auth/react";
+import Header from "../../components/Header";
 const signin = ({ providers }) => {
   return (
     <>
@@ -12,7 +12,7 @@ const signin = ({ providers }) => {
             <div key={provider.name}>
               <button
                 className="bg-blue-500 text-white p-3 rounded-lg"
-                onClick={() => signIn(provider.id, { callbackUrl: '/' })}
+                onClick={() => signIn(provider.id, { callbackUrl: "/" })}
               >
                 Sign in with {provider.name}
               </button>
@@ -21,15 +21,15 @@ const signin = ({ providers }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export async function getServerSideProps() {
-  const providers = await getProviders()
+  const providers = await getProviders();
   return {
     props: {
       providers,
     },
-  }
+  };
 }
-export default signin
+export default signin;

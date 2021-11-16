@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 import {
   SearchIcon,
   PlusCircleIcon,
@@ -6,26 +6,27 @@ import {
   HeartIcon,
   PaperAirplaneIcon,
   MenuIcon,
-} from '@heroicons/react/outline'
-import { HomeIcon } from '@heroicons/react/solid'
-import Home from '../pages'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
-import { useRecoilState } from 'recoil'
-import { modalState } from '../atoms/modalAtom'
+} from "@heroicons/react/outline";
+import { HomeIcon } from "@heroicons/react/solid";
+import Home from "../pages";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atoms/modalAtom";
+import Link from "next/link";
 
 const Header = () => {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
-  const [open, setOpen] = useRecoilState(modalState)
+  const [open, setOpen] = useRecoilState(modalState);
 
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="shadow-sm border-b sticky top-0 z-50 bg-white">
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto items-center">
         <div
-          onClick={() => router.push('/')}
+          onClick={() => router.push("/")}
           className="relative w-24 h-24 hidden lg:inline-grid cursor-pointer"
         >
           <Image
@@ -35,7 +36,7 @@ const Header = () => {
           />
         </div>
         <div
-          onClick={() => router.push('/')}
+          onClick={() => router.push("/")}
           className="relative w-10 h-10 lg:hidden flex-shrink-0 cursor-pointer"
         >
           <Image
@@ -90,14 +91,16 @@ const Header = () => {
           <div>
             <HomeIcon
               className="navBtn pr-3"
-              onClick={() => router.push('/')}
+              onClick={() => router.push("/")}
             />
-            <button onClick={signIn}>Sign In </button>
+            <Link href="/auth/signin">
+              <button>Sign In</button>
+            </Link>
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
