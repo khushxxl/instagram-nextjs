@@ -1,7 +1,10 @@
 # Next.js + Tailwind CSS Example
 Full stack instagram clone
 
-<img width="1439" alt="Screenshot 2021-12-01 at 2 14 44 PM" src="https://user-images.githubusercontent.com/73185436/144206889-32503d9a-eeb9-4d98-9628-30336c642e80.png">
+
+![Untitled design (1)](https://user-images.githubusercontent.com/73185436/144228318-61767ba7-2cab-4b96-8f22-69efa5344e6d.png)
+
+
 
 
 It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
