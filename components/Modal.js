@@ -10,7 +10,7 @@ import {
   updateDoc,
   doc,
 } from 'firebase/firestore'
-import { db, storage } from '../firebase'
+import { auth, db, storage } from '../firebase'
 import { useSession } from 'next-auth/react'
 import { getDownloadURL, ref, uploadString } from '@firebase/storage'
 
@@ -20,7 +20,6 @@ const Modal = () => {
   const captionRef = useRef(null)
   const [selectedFile, setSelectedFile] = useState(null)
   const [loading, setLoading] = useState(false)
-  const { data: session } = useSession()
 
   const addImageToPost = (e) => {
     const reader = new FileReader()
@@ -38,9 +37,9 @@ const Modal = () => {
     setLoading(true)
 
     const docRef = await addDoc(collection(db, 'posts'), {
-      username: session.user.username,
+      username: auth.currentUser.displayName,
       caption: captionRef.current.value,
-      profileImg: session.user.image,
+      profileImg: auth.currentUser.photoURL,
       timestamp: serverTimestamp(),
     })
     console.log(' post added with id :', docRef.id)

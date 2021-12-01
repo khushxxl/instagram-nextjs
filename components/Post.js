@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/outline'
 import { HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
+import { auth } from '../firebase'
 
 const Post = ({ id, username, userImage, img, caption }) => {
   const { data: session } = useSession()
@@ -26,7 +27,7 @@ const Post = ({ id, username, userImage, img, caption }) => {
       {/* Image */}
       <img src={img} className="object-cover w-full" alt="" />
       {/* Buttons */}
-      {session && (
+      {auth.currentUser && (
         <div className="flex justify-between px-4 pt-4">
           <div className="flex space-x-4">
             <HeartIcon className="btn" />
@@ -37,7 +38,7 @@ const Post = ({ id, username, userImage, img, caption }) => {
         </div>
       )}
 
-      {!session && (
+      {!auth.currentUser && (
         <p className="p-0 text-center mt-2">Sign in to Like and Comment</p>
       )}
 
@@ -49,7 +50,7 @@ const Post = ({ id, username, userImage, img, caption }) => {
       </p>
 
       {/* Comments  */}
-      {session && (
+      {auth.currentUser && (
         <form action="" className="flex items-center p-4">
           <EmojiHappyIcon className="h-7" />
           <input

@@ -1,6 +1,7 @@
 import faker from 'faker'
 import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
+import { auth } from '../firebase'
 import Story from './Story'
 const Stories = () => {
   const { data: session } = useSession()
@@ -14,8 +15,11 @@ const Stories = () => {
   }, [])
   return (
     <div className="flex space-x-3 p-6 bg-white mt-8 border-gray-200 border rounded-sm overflow-x-scroll">
-      {session && (
-        <Story img={session?.user?.image} username={session?.user?.username} />
+      {auth.currentUser && (
+        <Story
+          img={auth.currentUser.photoURL}
+          username={auth.currentUser.displayName}
+        />
       )}
 
       {suggestions.map((profile) => (
