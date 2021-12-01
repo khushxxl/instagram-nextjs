@@ -1,6 +1,8 @@
 # Next.js + Tailwind CSS Example
+Full stack instagram clone
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<img width="1439" alt="Screenshot 2021-12-01 at 2 14 44 PM" src="https://user-images.githubusercontent.com/73185436/144206889-32503d9a-eeb9-4d98-9628-30336c642e80.png">
+
 
 It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
 
